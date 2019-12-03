@@ -3,7 +3,25 @@ $('#btn_board_new').on('click', function() {
 });
 
 $('#btn_board_register').on('click', function() {
-    // window.location.replace("/board/register");
+    $.ajax({
+        url:'/board/register/process',
+        method:'POST',
+        dataType:'json',
+        contentType:'application/json',
+        data:JSON.stringify({'board_title':$('#board_title').val(),
+                             'board_content':$('#board_content').val()}),
+        success:function(data) {
+            if(data.status == 'OK') {
+                alert('저장에 성공!');
+                window.location.replace('/board/list');
+            } else {
+                alert('저장에 실패!, 다시 시도!1');    
+            }
+        },
+        error:function(err) {
+            alert('저장에 실패!, 다시 시도!2');
+        }
+    });
 });
 
 $('#btn_board_list').on('click', function() {
