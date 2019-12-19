@@ -12,8 +12,9 @@
                 <h1>수정</h1>
                 <div align="right">작성자</div>
                 <div class="board-form">
-                    <input id="board_title" type="text"/>
-                    <textarea id="board_content" rows="10"></textarea>
+					<input id="bid" type="hidden" value="<%=data.bid%>"/>
+                    <input id="board_title" type="text" value="<%=data.title%>"/>
+                    <textarea id="board_content" rows="10"><%=data.content%></textarea>
                 </div>
 				<div align="right">
                     <button id="btn_board_update">수정</button>
